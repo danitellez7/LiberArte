@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Actividad extends Model
+{
+        protected $fillable = [
+        'nombre',
+        'descripcion',
+        'area_artistica',
+        'edad_minima',
+        'edad_maxima',
+        'duracion',
+        'imagen'
+    ];
+
+    //Relacion entre actividad y usuario (1:M)
+    public function empleado(){
+
+        return $this->belongsTo(Usuario::class, 'empleado_id');
+    }
+
+    //Relación entre actividad e inscripciones (1:M)
+    public function inscripciones(){
+
+        return $this->hasMany(Inscripcion::class, 'actividad_id');
+    }
+
+    //Relación entre actividad y niños (N:M)
+    public function ninos(){
+
+        return $this->belongsToMany(Nino::class, 'inscripciones', 'actividad_id', 'nino_id');
+    }
+
+    //Relación entre actividad y calendario (1:M)
+    public function calendarios(){
+
+        return $this->hasMany(Calendario::class, 'actividad_id');
+    }
+
+}
