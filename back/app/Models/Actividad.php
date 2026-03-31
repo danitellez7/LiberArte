@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Actividad extends Model
 {
+        protected $table = 'actividades';
+
         protected $fillable = [
         'nombre',
         'descripcion',
@@ -13,8 +15,13 @@ class Actividad extends Model
         'edad_minima',
         'edad_maxima',
         'duracion',
-        'imagen'
+        'imagen',
+        'estado'
     ];
+
+    //-------------------------------------------------------
+    //RELACIONES
+    //-------------------------------------------------------
 
     //Relacion entre actividad y usuario (1:M)
     public function empleado(){

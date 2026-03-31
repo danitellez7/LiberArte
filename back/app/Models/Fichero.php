@@ -19,6 +19,10 @@ class Fichero extends Model
         'estado'
     ];
 
+    //-------------------------------------------------------
+    //RELACIONES
+    //-------------------------------------------------------
+
     //Relación entre fichero y actividad (M:1)
     public function actividad(){
 

@@ -16,6 +16,10 @@ class Nino extends Model
         'observaciones'
     ];
 
+    //-------------------------------------------------------
+    //RELACIONES
+    //-------------------------------------------------------
+
     //Relación entre niño y tutor (1:M)
     public function tutor(){
 
@@ -31,13 +35,13 @@ class Nino extends Model
     //Relación entre niño e incripciones (1:M)
     public function inscripciones(){
 
-        return $this->hasMany(Inscripcion::class);
+        return $this->hasMany(Inscripcion::class, 'nino_id');
     }
 
     //Relación entre niño y ficheros (1:M)
     public function ficheros(){
 
-        return $this->hasMany(Fichero::class);
+        return $this->hasMany(Fichero::class, 'nino_id');
     }
 
     //Relación entre niño y actividades (N:M)

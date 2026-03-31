@@ -2,9 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Str;
 
-class Usuario extends Model{
+class Usuario extends Authenticatable implements MustVerifyEmail{
+
+    use HasApiTokens, HasFactory, Notifiable;
 
     // Añadimos los campos 
     protected $fillable = [
@@ -15,8 +22,27 @@ class Usuario extends Model{
         'direccion',
         'email',
         'password',
-        'rol'
+        'rol',
+        'verification_token',
+        'verification_token_expires_at'
     ];
+
+    //Campos ocultos
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'verification_token',
+    ];
+
+    //Conversión automática
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'verification_token_expires_at' => 'datetime',
+    ];
+
+    //-------------------------------------------------------
+    //RELACIONES
+    //-------------------------------------------------------
 
     //Relación entre usuario y niños (tutor principal) (1:M)
     public function ninosTutor(){ 
@@ -33,7 +59,7 @@ class Usuario extends Model{
     //Relación entre usuario y pagos (1:M)
     public function pagos(){
 
-        return $this->hasMany(Pago::class);
+        return $this->hasMany(Pago::class, 'tutor_id');
     }
 
     //Relación entre usuario y ficheros (1:M)
@@ -51,7 +77,28 @@ class Usuario extends Model{
     //Relación entre usuario y notificaciones (1:M)
     public function notificaciones(){
 
-        return $this->hasMany(Notificacion::class);
+        return $this->hasMany(Notificacion::class, 'usuario_id');
+    }
+
+    //---------------------------------------------------
+    //MÉTODOS DE VERIFICACIÓN DE EMAIL
+    //---------------------------------------------------
+
+    //Métodos de verificación
+
+    public function generarTokenVerificacion(){
+
+        $this->verification_token = Str::random(64);
+        $this->verification_token_expires_at = now()->addHours(24);
+        $this->save();
+    }
+
+    public function marcarEmailComoVerificado(){
+
+        $this->email_verified_at = now();
+        $this->verification_token = null;
+        $this->verification_token_expires_at = null;
+        $this->save();
     }
     
 }

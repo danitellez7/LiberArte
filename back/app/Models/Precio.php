@@ -13,6 +13,10 @@ class Precio extends Model
         'estado'
     ];
 
+    //-------------------------------------------------------
+    //RELACIONES
+    //-------------------------------------------------------
+
     //Relación entre precio y actividad (M:1)
     public function actividad(){
 

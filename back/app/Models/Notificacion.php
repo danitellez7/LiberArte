@@ -15,10 +15,14 @@ use Illuminate\Database\Eloquent\Model;
         'tipo'
     ];
 
+    //-------------------------------------------------------
+    //RELACIONES
+    //-------------------------------------------------------
+
     //Relación entre notificaciones y usuario (1:1)
     public function usuario(){
 
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(Usuario::class, 'usuario_id');
     }
 
 }

@@ -13,6 +13,10 @@ class NinoUsuario extends Model
         'responsable_economico'
     ];
 
+    //-------------------------------------------------------
+    //RELACIONES
+    //-------------------------------------------------------
+
     //Relación con niño
     public function nino(){
 

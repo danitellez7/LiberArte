@@ -7,12 +7,23 @@ use Illuminate\Foundation\Configuration\Middleware;
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
+        api:__DIR__.'/../routes/api.php',
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+
+    //Activamos Sanctum para que React pueda autenticarse
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        //Middleware de Sanctum 
+        $middleware->statefulApi();
+
+        //Middleware de Roles
+        $middleware->alias([
+            'rol' => \App\Http\Middleware\RoleMiddleware::class,
+        ]);
     })
+
+
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
