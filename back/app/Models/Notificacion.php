@@ -2,17 +2,24 @@
 
 namespace App\Models;
 
+use App\Models\Usuario;
+
 use Illuminate\Database\Eloquent\Model;
 
     //Para poder crear notificaciones 
     class Notificacion extends Model
     {
+
+        protected $table = 'notificaciones';
+        
         protected $fillable = [
-        'usuario_id',
+        'tutor_id',
         'titulo',
         'mensaje',
+        'subtipo',
         'leida',
-        'tipo'
+        'tipo',
+        'creado_por'
     ];
 
     //-------------------------------------------------------
@@ -20,9 +27,13 @@ use Illuminate\Database\Eloquent\Model;
     //-------------------------------------------------------
 
     //Relación entre notificaciones y usuario (1:1)
-    public function usuario(){
+    public function tutor(){
 
-        return $this->belongsTo(Usuario::class, 'usuario_id');
+        return $this->belongsTo(Usuario::class, 'tutor_id');
     }
 
+    //Relación entre notificaciones y usuario creador(1:1)
+    public function creador(){
+        return $this->belongsTo(Usuario::class, 'creado_por');
+    }
 }

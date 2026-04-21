@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PagoController;
+use App\Http\Controllers\NotificacionController;
 
 
 //Ruta para comprobar que la API funciona
@@ -71,5 +72,46 @@ Route::get('tutores/{tutor}/deuda', [PagoController::class, 'deudaTutor']);
 //Ruta para mis pagos en concreto
 Route::middleware('auth:sanctum')->get('/mis-pagos', [PagoController::class, 'misPagos']);
 
+//Ruta para pagado correctamente
+Route::put('/pagos/{id}/pagar', [PagoController::class, 'pagar']);
+
+//Ruta paga crear un pago nuevo
+Route::post('/pagos/crear', [PagoController::class, 'crearPago']); 
+
+//Ruta para obtener pagos por DNI del tutor
+Route::get('/pagos/tutor/{dni}', [PagoController::class, 'obtenerPagosPorDni']);
+
+
+//-------------------------------------------------------
+//NOTIFICACIONES
+//-------------------------------------------------------
+
+//Ruta para listar notificaciones del usuario autenticado
+Route::get('/notificaciones', [NotificacionController::class, 'index'])
+    ->middleware('auth:sanctum');
+
+//Ruta para crear notificaciones
+Route::post('/notificaciones', [NotificacionController::class, 'store'])
+    ->middleware('auth:sanctum');
+
+//Ruta para marcar notificación como leída
+Route::put('/notificaciones/{id}/leida', [NotificacionController::class, 'marcarLeida'])
+    ->middleware('auth:sanctum');
+
+//Ruta para marcar notificación como no leídas
+Route::get('/notificaciones/no_leidas/contar', [NotificacionController::class, 'contarNoLeidas'])
+    ->middleware('auth:sanctum');
+
+//Ruta para eliminar notificaciones
+Route::delete('/notificaciones/{id}', [NotificacionController::class, 'destroy'])
+    ->middleware('auth:sanctum');
+
+//Ruta para marcar todas las notificaciones como leídas
+Route::put('/notificaciones/marcar-todas', [NotificacionController::class, 'marcarTodasLeidas'])
+    ->middleware('auth:sanctum');
+
+//Ruta para eliminar todas 
+Route::delete('/notificaciones/eliminar-todas', [NotificacionController::class, 'eliminarTodas'])
+    ->middleware('auth:sanctum');
 
 

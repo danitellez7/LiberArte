@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pago;
+use App\Models\Usuario;
 use App\Models\Inscripcion;
 use Illuminate\Http\Request;
 
@@ -276,5 +277,112 @@ class PagoController extends Controller
         });
 
         return response()->json($respuesta);
-    } 
+    }
+
+    //------------------------------------------------
+    //MARCAR UN PAGO COMO PAGADO
+    //------------------------------------------------
+    public function pagar($id){
+        $pago = Pago::findOrFail($id);
+
+        $pago->estado = 'pagado';
+        $pago->fecha_pago = now();
+
+        $pago->save();
+
+        return response()->json([
+            'message' => 'Pago marcado como pagado correctamente.',
+            'pago' => $pago
+        ]);
+    }
+
+    //------------------------------------------------
+    //CREAR UN NUEVO PAGO
+    //------------------------------------------------
+    public function crearPago(Request $request){
+
+        //Validación inicial
+        $validated = $request->validate([
+            'tutor_id' => 'required|exists:usuarios,id',
+            'mes' => 'required|date',
+            'total_sin_descuento' => 'required|numeric|min:0',
+            'descuento_aplicado' => 'required|numeric|min:0',
+            'total_final' => 'required|numeric|min:0',
+            'estado' => 'required|in:pendiente,pagado',
+            'fecha_pago' => 'nullable|date',
+        ]);
+
+        //Validación según el cálculo con tolerancia 
+        $esperado = $validated['total_sin_descuento'] - $validated['descuento_aplicado'];
+        $diferencia = abs($esperado - $validated['total_final']);
+
+        if($diferencia > 0.01){
+            return response()->json([
+                'error' => 'El total_final no coincide con el total_sin_descuento - descuento_aplicado.'
+            ], 422);
+        }
+
+        //Validación según el estado 
+        if($validated['estado'] === 'pendiente'){
+
+            if(!empty($validated['fecha_pago'])){
+                return response()->json([
+                    'error' => 'Un pago pendiente no puede tener fecha de pago.'
+                ], 422);
+            }
+
+            $validated['fecha_pago'] = null;
+        }
+
+        if($validated['estado'] === 'pagado'){
+
+            if(empty($validated['fecha_pago'])){
+                $validated['fecha_pago'] = now();
+            }
+        }
+
+        //Creamos el pago
+        $pago = Pago::create($validated);
+
+        return response()->json([
+            'message' => 'Pago creado corretamente.',
+            'pago' => $pago
+        ], 201);
+    }
+
+    //------------------------------------------------
+    //OBTENER PAGOS POR DNI DEL TUTOR
+    //------------------------------------------------
+    public function obtenerPagosPorDni($dni){
+
+        //Buscamos al usuario por dni
+        $tutor = Usuario::where('dni', $dni)->first();
+
+        //Si no existe mandamos un mensaje genérico
+        if(!$tutor || $tutor->rol !== 'tutor'){
+            return response()->json([
+                'message' => 'No se encontraron pagos para este DNI.'
+            ], 404);
+        }
+
+        //Buscar pagos del tutor
+        $pagos = Pago::where('tutor_id', $tutor->id)->get();
+
+        //Si no tiene pagos, mismo mensaje
+        if($pagos->isEmpty()){
+            return response()->json([
+                'message' => 'No se encontraron pagos para este DNI.'
+            ], 404);
+        }
+
+        //Devolver pagos
+        return response()->json([
+            'tutor' => [
+                'id' => $tutor->id,
+                'nombre' => $tutor->nombre,
+                'dni' => $tutor->dni
+            ],
+            'pagos' => $pagos
+        ], 200);
+    }
 }
