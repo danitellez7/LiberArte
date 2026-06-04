@@ -1,0 +1,107 @@
+.actividades-container{
+    padding: 30px;
+}
+
+.actividades-container h1{
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.actividad-form{
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.actividad-form input,
+.actividad-form textarea,
+.actividad-form select{
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fafafa;
+    transition: border-color 0.2s ease;
+}
+
+.actividad-form input:focus,
+.actividad-form textarea:focus,
+.actividad-form select:focus{
+    outline: none;
+    border-color: #4a90e2;
+    background: #fff;
+}
+
+.actividad-form button{
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    width: 40%;
+}
+
+.actividad-form button:hover{
+    background:#3b7ac0;
+    transform: translateY(-2px);
+}
+
+.actividad-form button:active{
+    transform: translateY(0);
+    background: #336ba8;
+}
+
+.actividad-lista{
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.actividad-item{
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    align-items: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.actividad-item:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+.actividad-item button{
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.actividad-item button:hover{
+    background-color: #c62828;
+    transform: translateY(-2px);
+}
+
+.actividad-item button:active{
+    transform: translateY(0);
+}

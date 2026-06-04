@@ -41,14 +41,6 @@ class LoginController extends Controller{
         }
 
         //-------------------------------------------------------
-        //COMPROBAR SI EL EMAIL ESTÁ VERIFICADO
-        //-------------------------------------------------------
-
-        if (!$user->email_verified_at){
-            return response()->json(['error' => 'Debes verificar tu email antes de iniciar sesión'], 403);
-        }
-
-        //-------------------------------------------------------
         //GENERAMOS TOKEN PARA SANCTUM
         //-------------------------------------------------------
 

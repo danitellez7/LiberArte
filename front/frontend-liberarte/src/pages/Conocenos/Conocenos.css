@@ -1,0 +1,768 @@
+/*CONTENEDOR PRINCIPAL*/
+.conocenos-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 20px;
+    margin-bottom: -6rem;
+}
+
+/*SIDEBAR*/
+.sidebar {
+    width: 200px;
+    background: #f8c8dc;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 20px;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+    height: fit-content;
+    margin-bottom: 7rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 1rem;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s ease;
+    position: relative;
+    padding-left: 10px;
+}
+
+.sidebar a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0%;
+    background: #ff7a00;
+    border-radius: 4px;
+    transition: height 0.3s ease;
+}
+
+.sidebar a:hover {
+    color: #FF7A00;
+    transform: translateX(4px);
+}
+
+.sidebar a:hover::before{
+    height: 100%;
+}
+
+/*CONTENIDO PRINCIPAL*/
+.sections {
+    flex: 1;
+    padding: 20px;
+    overflow: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    animation: fadeSlide 0.6s ease-out;
+}
+
+/*CADA SECCIÓN*/
+.section {
+    min-height: 607px;
+    background-image: url("/conocenos-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 3rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    margin-bottom: 10px;
+}
+
+
+.section p {
+    line-height: 1.6;
+    font-size: 1.15rem;
+    color: #333;
+}
+
+/*SECCION que-es e inclusion*/
+.section#que-es,
+.section#inclusion{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 7rem;
+}
+
+.section#que-es .text,
+.section#inclusion .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 480px;
+    height: 100%;
+    text-align: left;
+}
+
+.section#que-es h2,
+.section#inclusion h2{
+    font-size: 2.5rem;
+    text-align: left;
+    max-width: 500px;
+    color: #646AAA;
+    padding-bottom:  1rem;
+} 
+
+.section#que-es p,
+.section#inclusion p{
+    text-align: left;
+    max-width: 500px;
+}
+
+.section#que-es img,
+.section#inclusion img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 900px;
+    height: auto;
+    z-index: 0;
+    opacity: 1;
+    left: 18rem;
+}
+
+/*SECCION por que nace y metodo*/
+.section#por-que-nace,
+.section#metodo{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 7rem;
+    width: 100%;
+}
+
+.section#por-que-nace .text,
+.section#metodo .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.section#por-que-nace h2,
+.section#metodo h2{
+    font-size: 2.5rem;
+    text-align: center;
+    width: 100%;
+    color: #646AAA;
+    padding-bottom: 1rem;
+} 
+
+.section#por-que-nace p,
+.section#metodo p{
+    text-align: center;
+    width: 100%;
+}
+
+.section#por-que-nace img,
+.section#metodo img{
+    position: absolute;
+    width: 900px;
+    height: auto;
+    z-index: 0;
+    opacity: 1;
+    top: 5rem;
+    right: 5rem;
+}
+
+/*SECCION vision-mision*/
+.section#vision-mision {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0rem;
+    padding-bottom: 10rem;
+    width: 100%;
+}
+
+.section#vision-mision .columns{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.section#vision-mision .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.section#vision-mision h2{
+    font-size: 2.5rem;
+    text-align: center;
+    color: #646AAA;
+}
+
+.section#vision-mision p{
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.section#vision-mision ul{
+    text-align: left;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.section#vision-mision img{
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: auto;
+    opacity: 1;
+    z-index: 0;
+}
+
+/*SECCION inclusion*/
+
+/*SECCION importancia y actividades*/
+.section#importancia,
+.section#actividades{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.section#importancia .text,
+.section#actividades .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1200px;
+    height: 100%;
+    text-align: left;
+}
+
+.section#importancia h2,
+.section#actividades h2{
+    font-size: 2.5rem;
+    text-align: center;
+    color: #646AAA;
+    white-space: nowrap;
+    width: 100%;
+    padding-bottom: 3rem;
+}
+
+.section#importancia p{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.section#importancia img{
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%) scale(1.3);
+    width: 300px;
+    height: auto;
+    z-index: 1;
+}
+
+
+
+/*TARJETAS*/
+.cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.activity-list{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cards, .activity-card {
+    font-size: 1.15rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.section#importancia .card{
+    position: relative;
+    width: 570px;
+    height: 210px;
+    overflow: visible;
+}
+
+.section#actividades img{
+    width: 260px;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+/*EQUIPO*/
+.section#equipo .team-member-content{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+}
+
+.section#equipo{
+    justify-content: flex-start;
+    padding-top: 5.5rem;
+}
+
+.section#equipo h2{
+    font-size: 2.5rem;
+    text-align: center;
+    color: #646AAA;
+    padding-bottom: 3rem;
+    width: 100%;
+}
+
+.section#equipo .text{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-member h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.member-body{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.member-body img{
+    width: 200px;
+    height: auto;
+    border-radius: 12px;
+    margin-top: 0.5rem;
+}
+
+.member-body .descripcion p{
+    text-align: left;
+    max-width: 500px;
+    color: #777;
+}
+
+
+/*CTA*/
+.section#cta{
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 0;
+    padding-bottom: 2rem;
+}
+
+.section#cta h2{
+    font-size: 2.3rem;
+    text-align: center;
+    color: #646AAA;
+    padding-bottom: 1rem;
+    width: 100%;
+    z-index: 2;
+}
+
+.cta-btn {
+    padding: 1rem 2rem;
+    background: #ff7a00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    transition: 0.3 ease;
+    margin: 2rem auto 0 auto;
+    display: block;
+    text-decoration: none;
+    width: 175px;
+    text-align: center;
+    z-index: 3;
+}
+
+.cta-btn:hover {
+    background: #e86b00 ;
+}
+
+.section#cta img{
+    position: absolute;
+    z-index: 0;
+    width: 770px;
+    bottom: -6.8rem;
+    left: 53%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+/*ANIMACIÓN DE ENTRADA*/
+@keyframes fadeSlide{
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*ANIMACIÓN PRINCIPAL*/
+@keyframes sectionFadeSlide{
+    0%{
+        opacity: 0;
+        transform: translateY(-5px) scale(0.98);
+        filter: blur(4px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/*CLASE QUE ACTIVA LA ANIMACION*/
+.active-section{
+    animation: sectionFadeSlide 0.7s ease forwards;
+}
+
+
+/*RESPONSIVE*/
+@media (max-width: 1024px){
+
+    .conocenos-container{
+        gap: 28px;
+        margin-bottom: -4.5rem;
+        padding: 0 1rem;
+    }
+
+    .sidebar{
+        width: 180px;
+        padding: 0.5rem 0.8rem;
+        top: 16px;
+    }
+
+    .sections{
+        padding: 18px;
+    }
+
+    .section{
+        padding: 2.5rem;
+        min-height: 52vh;
+    }
+
+    .section#que-es img,
+    .section#inclusion img,
+    .section#por-que-nace img,
+    .section#metodo img,
+    .section#vision-mision img{
+        width: min(48vw, 640px);
+        left: auto;
+        right: 1rem;
+        top: auto;
+        bottom: 0;
+        transform: none;
+    }
+
+    .section#importancia img{
+        width: min(40vw, 420px);
+    }
+
+    .cards{
+        grid-template-columns: 1fr 1fr;
+    }
+    .activity-list{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .section#equipo .team-member-content{gap: 2.5rem;}
+}
+
+/*TABLET*/
+@media (max-width: 768px){
+
+    .sidebar{
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    .conocenos-container{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    margin-bottom: -2rem;
+    padding: 0 0.75rem;
+    }
+
+    .sections{
+        width: 100%;
+        padding: 14px;
+        box-sizing: border-box;
+    }
+    .section{
+        padding: 1.4rem;
+        min-height: auto;
+        border-radius: 10px;
+    }
+
+    .section p{
+        font-size: 1rem;
+    }
+
+    .section#que-es,
+    .section#inclusion{
+        padding-top: 2rem;
+        padding-bottom: 6rem;
+    }
+
+    .section#que-es h2,
+    .section#inclusion h2,
+    .section#por-que-nace h2,
+    .section#metodo h2,
+    .section#vision-mision h2,
+    .section#importancia h2,
+    .section#actividades h2,
+    .section#equipo h2,
+    .section#cta h2{
+        font-size: 2rem;
+    }
+
+    .section#por-que-nace,
+    .section#metodo{
+        padding-top: 2rem;
+        padding-bottom: 9rem;
+    }
+
+
+    .section#que-es .text,
+    .section#inclusion .text,
+    .section#por-que-nace .text,
+    .section#metodo .text{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .section#vision-mision .columns{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .cards{
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-left: 20rem;
+    }
+    .activity-list{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .section#equipo .team-member-content{
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .section#cta img{
+        width: min(35vw, 180px);
+    }
+
+    .section#que-es img,
+    .section#inclusion img,
+    .section#por-que-nace img,
+    .section#metodo img,
+    .section#vision-mision img{
+        width: min(45vw, 520px);
+        position: absolute;
+        right: 0.5rem;
+        bottom: 0;
+        top: auto;
+        transform: none;
+        opacity: 0.95;
+    }
+
+    .section#cta{
+        margin-bottom: 2rem;
+    }
+
+    .section#cta img{
+        display: none;
+    }
+
+    
+
+}
+    
+@media (max-width: 480px){
+
+    .sidebar{
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    .conocenos-container{
+        margin-bottom: 0;
+        gap: 12px;
+        padding: 0 0.5rem;
+    }
+
+    .sections{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .section{
+        padding: 0.9rem;
+        border-radius: 10px;
+    }
+
+    .section p{
+        font-size: 0.7rem;
+    }
+    
+    .section#que-es h2,
+    .section#inclusion h2,
+    .section#por-que-nace h2,
+    .section#metodo h2,
+    .section#vision-mision h2,
+    .section#importancia h2,
+    .section#actividades h2,
+    .section#equipo h2,
+    .section#cta h2{
+        font-size: 1.5rem;
+    }
+
+    .section#importancia{
+        padding-bottom: 3rem;
+    }
+
+    .section#importancia h2{
+        padding-bottom: 1rem;
+    }
+
+    .section#que-es,
+    .section#inclusion{
+        padding-top: 2rem;
+        padding-bottom: 0;
+    }
+
+    .section#por-que-nace,
+    .section#metodo{
+        padding-top: 1rem;
+        padding-bottom: 0rem;
+    }
+
+    .section#vision-mision{
+        padding-top: 1rem;
+        padding-bottom: 0;
+    }
+
+    .section#vision-mision p{
+        font-size: 0.7rem;
+    }
+
+    .section#vision-mision li{
+        font-size: 0.7rem;
+    }
+    
+
+    .section#que-es img,
+    .section#inclusion img,
+    .section#por-que-nace img,
+    .section#metodo img,
+    .section#vision-mision img,
+    .section#importancia img{
+        display: block !important;
+        position: relative !important;
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        margin: 0.75rem auto 0 auto;
+        opacity: 1;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        z-index: 1;
+    }
+
+    .section .text{
+        z-index: 2;
+        position: relative;
+    }
+
+    .cards{
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    .activity-list{
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .member-body img{
+        width: 120px;
+    }
+
+    .cta-btn{
+        width: 100%;
+        max-width: 320px;
+        margin: 1rem auto0 auto;
+    }
+
+    .section#importancia p{
+        position: absolute;
+        padding: 0.5rem 0;
+    }
+}
+
+

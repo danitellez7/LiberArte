@@ -3,6 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Nino;
+use App\Models\Actividad;
+use App\Models\Precio;
+use App\Models\Usuario;
+use App\Models\Pago;
+use App\Models\PagoInscripcion;
 
 class Inscripcion extends Model
 {
@@ -13,6 +19,8 @@ class Inscripcion extends Model
         'actividad_id',
         'precio_id',
         'fecha_inscripcion',
+        'fecha_fin',
+        'tutor_id',
         'estado',
         'fecha_baja',
         'observaciones'
@@ -38,6 +46,12 @@ class Inscripcion extends Model
     public function precio(){
 
         return $this->belongsTo(Precio::class, 'precio_id');
+    }
+
+    //Tutor que realizó la inscripción (M:1)
+    public function tutor(){
+
+        return $this->belongsTo(Usuario::class, 'tutor_id');
     }
 
     //Relacion entre inscripción y pago

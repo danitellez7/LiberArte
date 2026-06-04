@@ -1,0 +1,39 @@
+
+.horarios-page{
+    background-image: url("/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 76vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 12px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 0rem 2rem;
+    z-index: 2;
+}
+
+.horario-container{
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.horario-container img{
+    max-width: 95%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+

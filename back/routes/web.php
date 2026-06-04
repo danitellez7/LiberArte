@@ -1,22 +1,9 @@
-<!--Web para poder ver el email corporativo-->
-
 <?php
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistroController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Usuario;
-
-//Ruta para ver la plantilla 
-Route::get('/test-email', function () {
-    return view('emails.verificar-cuenta-tutor', [
-        'url' => 'https://ejemplo.com'
-    ]);
-});
-
-
-//Ruta real de verificacion
-Route::get('/verificar-email/{token}', [RegistroController::class, 'verificarEmail']);
 
 //Ruta de login
 Route::post('/login', [LoginController::class, 'login']);

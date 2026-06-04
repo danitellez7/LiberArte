@@ -1,0 +1,236 @@
+/*Página usuario*/
+.usuarios-page{
+    padding: 30px;
+}
+
+/*Título*/
+.usuarios-title{
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/*Grid*/
+.usuarios-grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+.usuarios-card{
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.usuarios-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+.usuarios-nombre{
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.usuario-btn{
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    width: 24%;
+    text-align: center;
+    margin-right: 2rem;
+    margin-top: 1rem;
+}
+
+.usuario-btn:hover{
+    background: #3b7ac0;
+    transform: translateY(-2px);
+}
+
+.usuario-btn:active{
+    transform: translateY(0);
+    background: #336ba8;
+}
+
+
+/*USUARIO DETALLE*/
+.detalle-btn{
+    padding: 10px 18px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.detalle-btn:hover{
+    background: #3b7ac0;
+    transform: translateY(-2px);
+}
+
+.detalle-btn:active{
+    transform: translateY(0);
+}
+
+.detalle-card{
+    background: #ffffff;
+    padding: 24px 28px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    margin-bottom: 28px;
+}
+
+.detalle-card h1{
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.detalle-card h3{
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.detalle-lista,
+.detalle-lista ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detalle-lista li{
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    line-height: 1.5;
+}
+
+.detalle-lista li:last-child{
+    border-bottom: none;
+}
+
+.detalle-subtitulo{
+    font-weight: 700;
+    color: #333;
+}
+
+.detalle-lista ul li{
+    padding: 6px 0;
+    border: none;
+    color: #333;
+}
+
+.detalle-card ul li{
+    margin-bottom: 20px;
+}
+
+
+
+/*PANEL NIÑOS*/
+.panel-ninos{
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    max-height: 600px;
+}
+
+.panel-ninos h2{
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.panel-ninos h3{
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.nino-item{
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nino-item:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.btn-borrar-nino{
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-borrar-nino:hover{
+    background-color: #c62828;
+    transform: translateY(-2px);
+}
+
+.btn-borrar-nino:active{
+    transform: translateY(0);
+}
+
+
+.panel-ninos input,
+.panel-ninos select,
+.panel-ninos textarea{
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fafafa;
+    margin-bottom: 12px;
+    transition: border-color 0.2s ease;
+}
+
+.panel-ninos input:focus,
+.panel-ninos select:focus,
+.panel-ninos textarea:focus{
+    outline: none;
+    border-color: #4a90e2;
+    background: #fff;
+}
+
+.cancelar{
+    background: #777 !important;
+}
+
+.cancelar:hover{
+    background: #666 !important;
+}

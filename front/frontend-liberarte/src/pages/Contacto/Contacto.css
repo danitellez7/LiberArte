@@ -1,0 +1,237 @@
+
+.section-contacto{
+    background-image: url("/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 76vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 12px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 0rem 2rem;
+    z-index: 2;
+    margin-bottom: 1rem;
+}
+
+/*CONTENIDO*/
+.contacto-content{
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/*TÍTULO*/
+.contacto-title{
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #646AAA;
+    margin-bottom: 0.5rem;
+}
+
+/*FORMULARIO*/
+.contacto-form{
+    background: white;
+    padding: 2rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contacto-input,
+.contacto-textarea{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+    background-color: #ffd4e1;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: box-shadow 0.2s ease;
+}
+
+.contacto-input:focus,
+.contacto-textarea:focus{
+    box-shadow: 0 0 0 3px #ffd6e7;
+}
+
+/*TEXTAREA*/
+.contacto-textarea{
+    resize: none;
+    height: 120px;
+}
+
+/*BOTÓN*/
+.contacto-btn{
+    background-color: #ff7a00;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.contacto-btn:hover{
+    background-color: #e86b00;
+    transform: translateY(-4px);
+}
+
+/*MENSAJE DE ÉXITO*/
+.contacto-success{
+    margin-top: 1rem;
+    color: #777;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+
+/*RESPONSIVE*/
+.section-contacto,
+.section-contacto *{
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px){
+    .section-contacto{
+        padding: 2.5rem 1.5rem;
+        min-height: 60vh;
+        gap: 2rem;
+    }
+
+    .contacto-content{
+        max-width: 720px;
+        padding: 0 0.5rem;
+    }
+
+    .contacto-title{
+        font-size: 1.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .contacto-form{
+        padding: 1.6rem;
+        border-radius: 14px;
+    }
+
+    .contacto-input,
+    .contacto-textarea{
+        padding: 0.9rem;
+        font-size: 0.98rem;
+    }
+
+    .contacto-textarea{height: 110px;}
+    .contacto-btn{
+        padding: 0.85rem;
+        font-size: 1.05rem;
+    }
+    .contacto-success{font-size: 1.25rem;}
+
+}
+
+
+/*TABLET*/
+@media (max-width: 768px){
+    .section-contacto{
+        padding: 2rem 1rem;
+        min-height: auto;
+        gap: 1.5rem;
+    }
+
+    .contacto-content{
+        width: 100%;
+        max-width: 640px;
+        padding: 0 0.5rem;
+    }
+
+    .contacto-title{
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .contacto-form{
+        padding: 1.25rem;
+        border-radius: 12px;
+        gap: 1rem;
+    }
+
+    .contacto-input,
+    .contacto-textarea{
+        padding: 0.85rem;
+        font-size: 0.98rem;
+    }
+
+    .contacto-textarea{height: 120px;}
+
+    .contacto-btn{
+        width: 100%;
+        min-width: 320px;
+        margin: 0.25rem auto 0 auto;
+        padding: 0.9rem;
+        font-size: 1.05rem;
+    }
+    .contacto-success{
+        font-size: 1.25rem;
+        text-align: center;
+    }
+}
+
+/*MOVILES*/
+@media (max-width: 480px){
+    .section-contacto{
+        padding: 1rem 0.75rem;
+        gap: 1rem;
+        border-radius: 10px;
+    }
+
+    .contacto-content{
+        width: 100%;
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .contacto-title{
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .contacto-form{
+        padding: 1rem;
+        border-radius: 10px;
+        gap: 0.75rem;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .contacto-input,
+    .contacto-textarea{
+        padding: 0.75rem;
+        font-size: 0.95rem;
+        border-radius: 10px;
+    }
+
+    .contacto-textarea{height: 100px;}
+
+    .contacto-btn{
+        width: 100%;
+        padding: 0.9rem;
+        font-size: 1rem;
+        border-radius: 10px;
+        display: block;
+        margin: 0 auto;
+    }
+    .contacto-success{
+        font-size: 1.05rem;
+        text-align: center;
+        padding-top: 0.5rem;
+    }
+}

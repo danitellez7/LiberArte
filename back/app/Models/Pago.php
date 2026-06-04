@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Usuario;
 use App\Models\Inscripcion;
 use App\Models\PagoInscripcion;
+use App\Models\Fichero;
 
 class Pago extends Model{
 

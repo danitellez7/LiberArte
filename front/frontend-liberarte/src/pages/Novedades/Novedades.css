@@ -1,0 +1,120 @@
+
+.section-novedades{
+    background-image: url("/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 12px;
+    margin-top: 5px;
+    margin-bottom: 1rem;
+}
+
+.novedades-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    z-index: 2;
+}
+
+.cartel-novedades{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cartel-novedades:hover{
+    transform: scale(1.03);
+}
+
+
+/*RESPONSIVE*/
+.section-novedades,
+.novedades-content,
+.cartel-novedades{
+    box-sizing: border-box;
+}
+
+
+@media (max-width: 1024px){
+
+    .novedades-content{
+        gap: 2.25rem;
+        padding: 3.25rem 1.5rem;
+    }
+
+    .cartel-novedades{
+        max-width: 420px;
+        width: 48%;
+        height: auto;
+    }
+
+    .section-novedades{
+        padding: 1rem 0;
+    }
+}
+
+/*TABLET*/
+@media (max-width: 768px){
+    .novedades-content{
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2.25rem 1rem;
+    }
+
+    .cartel-novedades{
+        width: 85%;
+        max-width: 520px;
+        height: auto;
+    }
+
+    .section-novedades{
+        border-radius: 10px;
+        margin-top: 0.5rem;
+    }
+}
+
+/*MOVILES*/
+@media (max-width: 480px){
+    .novedades-content{
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.25rem 0.75rem;
+    }
+
+    .cartel-novedades{
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(10,10,30,0.06);
+    }
+
+    .section-novedades{
+        padding: 0.75rem 0.5rem;
+        margin-top: 0.25rem;
+    }
+}
+
+@media (max-width: 1024px){
+    .section-novedades{
+        overflow-x: hidden;
+    }
+}

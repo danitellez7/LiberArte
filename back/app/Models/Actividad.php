@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Fichero;
 
 class Actividad extends Model
 {
@@ -40,11 +41,4 @@ class Actividad extends Model
 
         return $this->belongsToMany(Nino::class, 'inscripciones', 'actividad_id', 'nino_id');
     }
-
-    //Relación entre actividad y calendario (1:M)
-    public function calendarios(){
-
-        return $this->hasMany(Calendario::class, 'actividad_id');
-    }
-
 }

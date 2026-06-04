@@ -385,4 +385,11 @@ class PagoController extends Controller
             'pagos' => $pagos
         ], 200);
     }
+
+    public function pagosTutor($id){
+
+        return Pago::with(['inscripcion.actividad', 'inscripcion.nino'])
+            ->where('tutor_id', $id)
+            ->get();
+    }
 }

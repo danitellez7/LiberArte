@@ -1,0 +1,110 @@
+.actividades-page{
+    background-image: url("/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 76vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    border-radius: 12px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 0rem 2rem;
+    z-index: 2;
+}
+
+.actividades-card{
+    background:rgba(255,255,255,0.55);
+    backdrop-filter: blur(6px);
+    padding: 30px 40px;
+    border-radius: 16px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.actividades-card h2{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #646aaa;
+    text-align: center;
+}
+
+.actividad-item{
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(4px);
+    padding: 24px 28px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: left !important;
+    align-items: flex-start !important;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    text-align: left;
+    align-items: flex-start;
+}
+
+.actividad-item > p strong{
+    font-size: 20px;
+    font-weight: 700;
+    color: #646aaa;
+}
+
+.actividad-item p{
+    font-size: 16px;
+    color: #333;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.ninos-container{
+    margin-top: 10px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.55);
+    border-left: 5px solid #646aaa;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    text-align: left;
+}
+
+.ninos-container p strong{
+    font-size: 18px;
+    color: #646aaa;
+}
+
+.ninos-container p{
+    margin: 4px 0;
+    font-size: 16px;
+}
+
+.pago-item{
+    background: rgba(255,255,255,0.65);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.pago-item{
+    font-size: 18px;
+    color: #333;
+    margin: 6px 0;
+}
