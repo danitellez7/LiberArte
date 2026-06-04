@@ -26,6 +26,7 @@
     position: relative;
     z-index: 2;
     box-sizing: border-box;
+    margin-top: 3.5rem;
 }
 
 .footer-inner{

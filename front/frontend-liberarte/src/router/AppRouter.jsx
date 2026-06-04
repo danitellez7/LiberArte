@@ -50,7 +50,6 @@ export default function AppRouter(){
                 <Route path="/login" element={<Login />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
 
-                {/**Panel nuevo */}
                 <Route path="/admin" element={<AdminLayout/>}>
                     <Route index element={<Dashboard/>} />
                     <Route path="usuarios" element={<Usuarios />} />

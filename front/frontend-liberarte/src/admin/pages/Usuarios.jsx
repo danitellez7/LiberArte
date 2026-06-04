@@ -85,7 +85,7 @@ export default function Usuarios() {
                             cargarNinos(u.id);
                             }}
                         >
-                            Añadir / Gestionar niños
+                            Añadir
                         </button>
 
                         <button className="usuario-btn" onClick={() => navigate(`/admin/usuarios/${u.id}`)}>Ver datos</button>
